@@ -103,35 +103,48 @@ function sortTask() {
 
   addeddTasks.forEach(function (words) {
     taskDates.push(words.value);
+    const date = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds() + ":" + nowDate.getMilliseconds() 
+    const addDate = document.createElement("em")
+    addDate.className = "align-right"
+    addDate.innerHTML = date 
+    addeddTasks.appendChild(addDate)
+    taskDates.push(addDate)
   });
 
   taskDates.sort();
 
   let len = taskDates.length;
-
+  const nowDate = new Date();
+    
   if (sortlist.value == "0") {
     for (let i = 0; i < len; i++) {
       addeddTasks.forEach(function (words) {
         if (taskDates[i] == words.value) {
           taskList.appendChild(words);
+          const date = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds() + ":" + nowDate.getMilliseconds() 
+          const addDate = document.createElement("em")
+          addDate.className = "align-right"
+          addDate.innerHTML = date 
+          addeddTasks.appendChild(addDate)
         }
       });
     }
   } else {
+    
     for (let i = len; i >= 0; i--) {
       addeddTasks.forEach(function (words) {
         if (taskDates[i] == words.value) {
           taskList.appendChild(words);
+          const date = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds() + ":" + nowDate.getMilliseconds() 
+          const addDate = document.createElement("em")
+          addDate.className = "align-right"
+          addDate.innerHTML = date 
+          addeddTasks.appendChild(addDate)
         }
       });
     }
   }
-  const nowDate = new Date();
-  const date = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds() + ":" + nowDate.getMilliseconds() 
-  const addDate = document.createElement("em")
-  addDate.className = "align-right"
-  addDate.innerHTML = date 
-  addeddTasks.appendChild(addDate)
+ 
 }
 
 
