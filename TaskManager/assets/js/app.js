@@ -8,7 +8,7 @@ const taskList = document.querySelector(".collection"); //The ul
 
 const clearBtn = document.querySelector(".clear-tasks"); //the all task clear button
 
-const sortlist = document.querySelector(".browser-default");
+const dropDown = document.querySelector(".browser-default");
 
 const reloadIcon = document.querySelector(".fa"); //the reload button at the top navigation
 
@@ -27,7 +27,7 @@ taskList.addEventListener("click", removeTask);
 // Event Listener for reload
 reloadIcon.addEventListener("click", reloadPage);
 //Event listener for sort in ascending and descending order
-sortlist.addEventListener("change", sortTaskLists);
+dropDown.addEventListener("change", sortTask);
 // Add New  Task Function definition
 function addNewTask(e) {
   // Check empty entry
@@ -96,7 +96,7 @@ function reloadPage() {
   location.reload();
 }
 
-function sortTaskLists() {
+function sortTask() {
   const addeddTasks = document.querySelectorAll(".collection-item");
 
   let taskDates = [];
@@ -126,6 +126,12 @@ function sortTaskLists() {
       });
     }
   }
+  const nowDate = new Date();
+  const date = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds() + ":" + nowDate.getMilliseconds() 
+  const addDate = document.createElement("em")
+  addDate.className = "align-right"
+  addDate.innerHTML = date 
+  addeddTasks.appendChild(addDate)
 }
 
 
